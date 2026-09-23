@@ -119,7 +119,9 @@ export function Navbar() {
                     className="flex items-center justify-between border-b border-white/8 py-4 font-display text-2xl font-bold text-white"
                   >
                     {link.label}
-                    <span className="text-sm font-medium text-white/30">0{i + 1}</span>
+                    <span className="text-sm font-medium text-white/30" aria-hidden>
+                      0{i + 1}
+                    </span>
                   </a>
                 </motion.li>
               ))}

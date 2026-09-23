@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "generate:map": "node scripts/generate-world-dots.mjs"
+    "generate:map": "node scripts/generate-world-dots.mjs",
+    "build:preview": "NAVA_STATIC_EXPORT=1 next build --webpack && node scripts/build-preview.mjs"
   },
   "repository": {
     "type": "git",
