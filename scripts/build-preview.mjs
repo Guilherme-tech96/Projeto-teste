@@ -45,13 +45,14 @@ const body = html
 // <head> (and drop stray whitespace) before the app boots.
 const HEAD_FIXUP = `for (const n of [...document.body.childNodes]) {
   if (n.nodeType === 3 && !n.textContent.trim()) n.remove();
-  else if (/^(TITLE|META|STYLE|LINK)$/.test(n.nodeName)) document.head.appendChild(n);
+  else if (/^(TITLE|META|STYLE|LINK|NOSCRIPT)$/.test(n.nodeName)) document.head.appendChild(n);
 }
 document.currentScript.remove();`;
 
 const page = `${title}
 <meta name="description" content="Browsable preview of the NAVA Maritime Transport website.">
 <style>${css}</style>
+<noscript><style>[style*="opacity:0"],[style*="translateY"]{opacity:1!important;transform:none!important}img[data-nimg]{opacity:1!important}</style></noscript>
 <style>html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#051430;font-family:"Inter Variable",ui-sans-serif,system-ui,sans-serif;font-size:16px;line-height:1.5}</style>
 ${body}
 <script>${HEAD_FIXUP}</script>
